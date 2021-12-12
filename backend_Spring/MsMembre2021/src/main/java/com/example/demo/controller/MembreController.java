@@ -76,6 +76,8 @@ public class MembreController {
 		Member mbr=iMemberService.findMember(id);
 
 		mbr.setPubs(iMemberService.findPublicationparauteur(id));
+		mbr.setEvents(iMemberService.findEvenementparparticipant(id));
+		mbr.setTools(iMemberService.findOutilparutilisateur(id));
 
 	return mbr;
 	}

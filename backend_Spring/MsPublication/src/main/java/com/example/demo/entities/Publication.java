@@ -9,18 +9,44 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Publication implements Serializable {
+public class Publication implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String titre;
-	Date dateapparition;
-	String type;
+	private Long id ;
+	private Date date;
+	private String type,titre,lien,sourcePdf;
+	public Publication() {
+		super();
+	}
+	public Publication( Date date, String type, String titre, String lien, String sourcePdf) {
+		super();
+		this.date = date;
+		this.type = type;
+		this.titre = titre;
+		this.lien = lien;
+		this.sourcePdf = sourcePdf;
+	}
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getTitre() {
 		return titre;
@@ -28,28 +54,17 @@ public class Publication implements Serializable {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public Date getDateapparition() {
-		return dateapparition;
+	public String getLien() {
+		return lien;
 	}
-	public void setDateapparition(Date dateapparition) {
-		this.dateapparition = dateapparition;
+	public void setLien(String lien) {
+		this.lien = lien;
 	}
-	
-	public String getType() {
-		return type;
+	public String getSourcePdf() {
+		return sourcePdf;
 	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public Publication(String titre, Date dateapparition, String type) {
-		super();
-		this.titre = titre;
-		this.dateapparition = dateapparition;
-		this.type=type;
-	}
-	public Publication() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setSourcePdf(String sourcePdf) {
+		this.sourcePdf = sourcePdf;
 	}
 	
 
