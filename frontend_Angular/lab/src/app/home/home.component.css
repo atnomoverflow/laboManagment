@@ -1,3 +1,4 @@
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -24,13 +25,10 @@
 }
 
 .mt {
-    margin-top: 50px;
+    margin-top: 200px;
 }
 
-.section-text {
-    font-family: candara;
-    font-size: x-large;
-}
+
 
 .img-lab {
     max-width: 100%;
@@ -39,7 +37,47 @@
 .pd {
     padding: 20px;
 }
-.smart-health{
+
+.smart-health {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+    background-size: cover;
+}
+
+.selector {
+    position: relative;
+    z-index: 999;
+}
+.root{
+    --grad1: #00ccff;
+    --grad2: #0e1538;
+    --grad3: #d400d4;
+}
+/*SKEWED EFFECT*/
+.selector::before, .selector::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    -webkit-transform: skewX(2deg) skewY(4deg);
+    transform: skewX(2deg) skewY(4deg);
+    background: -webkit-linear-gradient(135deg, var(--grad1), var(--grad2), var(--grad3));
+    background: linear-gradient(315deg, var(--grad1), var(--grad2), var(--grad3));
+    z-index: -9;
+}
+
+.selector::after {
+    -webkit-filter: blur(50px);
+    filter: blur(50px);
+}
+
+/*HOVER EFFECT*/
+.selector:hover::before, .selector:hover::after {
+    background: -webkit-linear-gradient(315deg, var(--grad1), var(--grad2), var(--grad3));
+    background: linear-gradient(135deg, var(--grad1), var(--grad2), var(--grad3));
+}
+.b-bg{
+    background-color: black;
+    color: #fff;
 }
