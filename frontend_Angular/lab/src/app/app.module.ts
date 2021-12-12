@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatDividerModule} from '@angular/material/divider';
+import { OutilsComponent } from './outils/outils.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MembersComponent,
     PublicationsComponent,
     EvenmentsComponent,
+    OutilsComponent,
 
   ],
   imports: [
