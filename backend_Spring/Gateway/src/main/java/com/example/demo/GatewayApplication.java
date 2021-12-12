@@ -26,6 +26,7 @@ public class GatewayApplication {
 				.route(r->r.path("/membres/**").uri("lb://MEMBRE-SERVICE"))
 				.route(r->r.path("/publications/**").uri("lb://PUBLICATION-SERVICE"))
 				.route(r->r.path("/evenements/**").uri("lb://EVENEMENT-SERVICE"))
+				.route(r->r.path("/outils/**").uri("lb://OUTIL-SERVICE"))
 				.build();
 	}
 	@Bean
