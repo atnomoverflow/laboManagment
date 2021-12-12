@@ -1,0 +1,45 @@
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.mt {
+    margin-top: 50px;
+}
+
+.section-text {
+    font-family: candara;
+    font-size: x-large;
+}
+
+.img-lab {
+    max-width: 100%;
+}
+
+.pd {
+    padding: 20px;
+}
+.smart-health{
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
