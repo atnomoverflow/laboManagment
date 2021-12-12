@@ -8,11 +8,10 @@ import { PublicationsComponent } from './publications/publications.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  {path:'members',component:MembersComponent},
+  { path: 'members', component: MembersComponent },
   { path: 'evenments', component: EvenmentsComponent },
-  {path:'publications',component:PublicationsComponent}
-  
-  
+  { path: 'publications', component: PublicationsComponent },
+  { path: 'sign-up', component: PublicationsComponent },
 ];
 
 @NgModule({

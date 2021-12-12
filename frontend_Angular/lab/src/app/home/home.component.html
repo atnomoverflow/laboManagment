@@ -6,120 +6,25 @@
             overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
     </mat-carousel>
 </div>
-<div class=" mt pd mat-elevation-z2">
-    <div fxLayout="row" fxLayoutAlign="start center">
-        <div fxFlex="50">
-            <div class="pd" fxFlex="80">
-                <h4 class="mat-display-1">About Regim-Lab:</h4>
+<div class=" mt pd container selector root">
+    <div class="b-bg">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxFlex="50">
+                <div class="pd" fxFlex="80">
+                    <h4 class="mat-display-1">About Regim-Lab:</h4>
 
-                <h1 class="mat-headline">is a Research Laboratory in Intelligent Machines (code LR11ES48) located in the
-                    National
-                    Engineering School of Sfax (ENIS), University of Sfax.</h1>
+                    <h1 class="mat-headline">is a Research Laboratory in Intelligent Machines (code LR11ES48) located in
+                        the
+                        National
+                        Engineering School of Sfax (ENIS), University of Sfax.</h1>
+                </div>
             </div>
-        </div>
+            <span class="spacer"></span>
 
-        <mat-divider [vertical]="true" class="pd"></mat-divider>
-        <div fxFlex="40">
-            <img class="img-lab" src="https://lab.js.org/science.svg">
+            <mat-divider [vertical]="true" class="pd"></mat-divider>
+            <div fxFlex="40">
+                <img class="img-lab" src="../../assets/img/regim_logo-removebg-preview.png">
+            </div>
         </div>
     </div>
 </div>
-<div class="container mt">
-    <h4 class="mat-display-1">Regim-Lab Fields:</h4>
-
-</div>
-
-<mat-grid-list cols="6" rowHeight="1:1">
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <div mat-card-avatar class="smart-health"></div>
-                <mat-card-title>Smart Health</mat-card-title>
-                <mat-card-subtitle>Keywords: Medical image analysis</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="data:image/jpeg;base64,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
-" alt="smart health">
-            <mat-card-content>
-                <p>
-                    aims to implement intelligent systems in order to constantly improve health provision for all within
-                    this changing health economy.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>

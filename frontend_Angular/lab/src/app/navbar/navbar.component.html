@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="mat-elevation-z6">
+<mat-toolbar class=" colr mat-elevation-z6">
     <span>
         <mat-icon>local_library</mat-icon> Enis-Lab
     </span>
@@ -8,8 +8,7 @@
     <a [routerLink]="['/publications']" routerLinkActive="router-link-active" mat-button>Publications</a>
     <a [routerLink]="['/evenments']" routerLinkActive="router-link-active" mat-button>Evenments</a>
     <span class="ml-20">|</span>
-    <a [routerLink]="['/long-in']" routerLinkActive="router-link-active" class="ml-20" mat-raised-button
+    <a [routerLink]="['/log-in']" routerLinkActive="router-link-active" (click)="tryGoogleLogin()" class="ml-20" mat-raised-button
         color="accent">Log-in</a>
-    <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active" class="ml-20" mat-raised-button
-        color="accent">Sign-up</a>
+
 </mat-toolbar>
