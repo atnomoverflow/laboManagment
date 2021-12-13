@@ -1,0 +1,20 @@
+<body>
+    <!-- (ngSubmit)="OnSubmit()" -->
+<form [formGroup] = "form" (ngSubmit)="OnSubmit()">
+    <mat-form-field>
+        <mat-label>titre</mat-label>
+        <input matInput placeholder="titre" formControlName="titre">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>date</mat-label>
+        <input matInput placeholder="date" formControlName="date">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>lieu</mat-label>
+        <input matInput placeholder="lieu" formControlName="lieu">
+    </mat-form-field>
+    <button mat-button type="submit" >submit</button>
+</form>
+
+</body>
+    

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EvenementFormComponent } from './evenement-form/evenement-form.component';
 import { EvenmentsComponent } from './evenments/evenments.component';
 import { HomeComponent } from './home/home.component';
 import { MembersComponent } from './members/members.component';
@@ -12,6 +13,16 @@ const routes: Routes = [
   { path: 'evenments', component: EvenmentsComponent },
   { path: 'publications', component: PublicationsComponent },
   { path: 'sign-up', component: PublicationsComponent },
+  {
+    path : 'form',
+    pathMatch : 'full',
+    component : EvenementFormComponent
+  },
+  {
+    path : 'evenments/:id/edit',
+    pathMatch: 'full',
+    component : EvenementFormComponent
+  },
 ];
 
 @NgModule({

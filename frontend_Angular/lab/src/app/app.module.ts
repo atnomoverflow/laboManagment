@@ -22,7 +22,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthService } from './services/auth/auth.service';
-
+import { EvenementService } from './services/EvenementService/evenement.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import {MatTableModule} from '@angular/material/table';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EvenementFormComponent } from './evenement-form/evenement-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // 2. Add your credentials from step 1
 const config = {
   apiKey: "AIzaSyATbXp7WZsL93AFAy6jPJPzD41qUh6Y9Ls",
@@ -41,14 +49,17 @@ const config = {
     PublicationsComponent,
     EvenmentsComponent,
     FooterComponent,
+    ConfirmDialogComponent,
+    EvenementFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
     MatCarouselModule,
     MatGridListModule,
     MatCardModule,
@@ -57,10 +68,20 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
+    
+    
+    
   ],
   providers: [
-    AuthService
+    AuthService,
+    EvenementService
   ],
   bootstrap: [AppComponent]
 })
