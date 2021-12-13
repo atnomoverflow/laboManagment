@@ -1,15 +1,19 @@
 package com.example.demo;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import com.example.demo.entites.Evenement;
-
 import com.example.demo.service.EvenementImpl;
 
 @SpringBootApplication
@@ -35,5 +39,6 @@ public class EvenementApplication  implements CommandLineRunner{
 		evenementImpl.addEvenement(event3);
 		
 	}
+	
 
 }
