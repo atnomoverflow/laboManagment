@@ -15,53 +15,37 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entites.Evenement;
 import com.example.demo.service.IEvenementService;
 
-@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class EvenementController {
-	
-	
-	
-		@Autowired
-		IEvenementService iEvenementService;
-		
-		@GetMapping(value = "/evenements")
-		public List<Evenement> findAllEvenements()
-		{
-			return iEvenementService.findAll();
-		}
 
-		@GetMapping(value = "/evenement/{id}")
-		public Evenement findoneEvenement(@PathVariable Long id)
-		{
-			return iEvenementService.findEvenement(id);
-		}
-		
-		@PostMapping(value = "/evenement/add")
-		public Evenement addEvenement(@RequestBody Evenement event)
-		{
-			return iEvenementService.addEvenement(event);
-		}
+	@Autowired
+	IEvenementService iEvenementService;
 
-		
-		@PutMapping(value="/evenement/update/{id}")
-		public Evenement updateEvenement(@PathVariable Long id, @RequestBody Evenement e)
-		{
-			e.setId(id);
-			return iEvenementService.updateEvenement(e);
-		}
+	@GetMapping(value = "/evenements")
+	public List<Evenement> findAllEvenements() {
+		return iEvenementService.findAll();
+	}
 
-		
-		@CrossOrigin(origins = "http://localhost:4200/")
-		@DeleteMapping(value="/evenement/delete/{id}")
-		public void deleteEvenement(@PathVariable Long id)
-		{
-			iEvenementService.deleteEvenement(id);
-		}
+	@GetMapping(value = "/evenement/{id}")
+	public Evenement findoneEvenement(@PathVariable Long id) {
+		return iEvenementService.findEvenement(id);
+	}
 
-		
+	@PostMapping(value = "/evenement/add")
+	public Evenement addEvenement(@RequestBody Evenement event) {
+		return iEvenementService.addEvenement(event);
+	}
 
+	@CrossOrigin("*")
+	@PutMapping(value = "/evenement/update/{id}")
+	public Evenement updateEvenement(@PathVariable Long id, @RequestBody Evenement e) {
+		e.setId(id);
+		return iEvenementService.updateEvenement(e);
+	}
 
-	
-
+	@DeleteMapping(value = "/evenement/delete/{id}")
+	public void deleteEvenement(@PathVariable Long id) {
+		iEvenementService.deleteEvenement(id);
+	}
 
 }

@@ -29,6 +29,8 @@ public class GatewayApplication {
 				.route(r->r.path("/outils/**").uri("lb://OUTIL-SERVICE"))
 				.build();
 	}
+	
+	
 	@Bean
 	DiscoveryClientRouteDefinitionLocator definitionLocator(
 			ReactiveDiscoveryClient rdc, 
