@@ -1,9 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Evenement } from '../evenments/evenement';
+import { Member } from '../members/member';
 import { EvenementService } from '../services/EvenementService/evenement.service';
+import { MemberService } from '../services/MemberService/member.service';
 
 @Component({
   selector: 'app-evenement-form',
@@ -12,10 +14,12 @@ import { EvenementService } from '../services/EvenementService/evenement.service
 })
 export class EvenementFormComponent implements OnInit {
   form: any;
-  constructor(private evenementService:EvenementService,private router : Router) { }
+  membres: Member[]=[];
+  constructor(private evenementService:EvenementService,private router : Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.intform(null);
+   
   }
   intform(item : any): void {
     this.form = new FormGroup({
@@ -25,6 +29,7 @@ export class EvenementFormComponent implements OnInit {
       
     })
   }
+  
   OnSubmit() : void{
     console.log(this.form.value);
     this.evenementService.addEvenement(this.form.value).subscribe(

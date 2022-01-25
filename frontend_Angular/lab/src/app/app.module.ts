@@ -26,11 +26,23 @@ import { EvenementService } from './services/EvenementService/evenement.service'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EvenementFormComponent } from './evenement-form/evenement-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { OutilsComponent } from './outils/outils.component';
+import { OutilFormComponent } from './outil-form/outil-form.component';
+import { PublicationFormComponent } from './publication-form/publication-form.component';
+import { EditOutilFormComponent } from './edit-outil-form/edit-outil-form.component';
+import { EditEvenmentFormComponent } from './edit-evenment-form/edit-evenment-form.component';
+import { EditPublicationFormComponent } from './edit-publication-form/edit-publication-form.component';
+import {MatSelectModule} from '@angular/material/select';
+import { FormMembreComponent } from './form-membre/form-membre.component';
+
 // 2. Add your credentials from step 1
 const config = {
   apiKey: "AIzaSyATbXp7WZsL93AFAy6jPJPzD41qUh6Y9Ls",
@@ -51,6 +63,13 @@ const config = {
     FooterComponent,
     ConfirmDialogComponent,
     EvenementFormComponent,
+    OutilsComponent,
+    OutilFormComponent,
+    PublicationFormComponent,
+    EditOutilFormComponent,
+    EditEvenmentFormComponent,
+    EditPublicationFormComponent,
+    FormMembreComponent
   ],
   imports: [
     BrowserModule,
@@ -74,14 +93,17 @@ const config = {
     CommonModule,
     MatDialogModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-    
-    
-    
+    ReactiveFormsModule,
+    MatInputModule,
+    NgbModule,
+    MdbFormsModule,
+    MatSelectModule
+   
   ],
   providers: [
     AuthService,
-    EvenementService
+    EvenementService,
+
   ],
   bootstrap: [AppComponent]
 })

@@ -7,27 +7,24 @@ import { Evenement } from 'src/app/evenments/evenement';
   providedIn: 'root'
 })
 export class EvenementService {
-  private apiServerApi = 'http://localhost:9000';
+  private apiServerURL = 'http://localhost:8084';
 
   constructor(private httpClient: HttpClient) { }
 
   public getEvenements(): Observable<Evenement[]> {
-    return this.httpClient.get<Evenement[]>("http://localhost:9000/EVENEMENT-SERVICE/evenements")
+    return this.httpClient.get<Evenement[]>(`${this.apiServerURL}/evenements/`)
   }
   public addEvenement(event: Evenement): Observable<Evenement> {
     console.log(event)
-    return this.httpClient.post<Evenement>(`${this.apiServerApi}/EVENEMENT-SERVICE/evenement/add`, event);
+    return this.httpClient.post<Evenement>(`${this.apiServerURL}/evenement/add`, event);
   }
   public updateEvenement(event: Evenement): Observable<Evenement> {
-    return this.httpClient.put<Evenement>(`${this.apiServerApi}/EVENEMENT-SERVICE/evenement/update/${event.id}`, event);
+    return this.httpClient.put<Evenement>(`${this.apiServerURL}/evenement/update/${event.id}`, event);
   }
   public deleteEvenement(eventid: number): Observable<void> {
-    const optionRequete = {
-      headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*',
-      })
-    };
-    return this.httpClient.delete<void>(`${this.apiServerApi}/EVENEMENT-SERVICE/evenement/delete/${eventid}`,optionRequete);
+    return this.httpClient.delete<void>(`${this.apiServerURL}/evenement/delete/${eventid}`);
   }
-
+  public getEventByID(id: number) {
+    return this.httpClient.get(`${this.apiServerURL}/evenements/${id}`);
+}
 }
