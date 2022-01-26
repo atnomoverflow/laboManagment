@@ -1,11 +1,13 @@
 <div class="pt-5 h-86  container">
-    <div fxLayout="row" fxLayoutAlign="end center">
-        <button class="d-flex btn btn-primary mb-5" routerLink="/addPublication">
-            <p class="d-flex pt-2">
-                <mat-icon>add</mat-icon>
-                Create New
-            </p>
-        </button>
+    <div *ngIf="authService.userState as user">
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <button class="d-flex btn btn-primary mb-5" routerLink="/addPublication">
+                <p class="d-flex pt-2">
+                    <mat-icon>add</mat-icon>
+                    Create New
+                </p>
+            </button>
+        </div>
     </div>
     <div class=" d-flex justify-content-center">
         <table mat-table [dataSource]="publications" class="mat-elevation-z8">
@@ -44,17 +46,30 @@
                 <th mat-header-cell style="padding-right: 24px;" *matHeaderCellDef> titre </th>
                 <td mat-cell *matCellDef="let element" style="padding-right: 24px;"> {{element.titre}} </td>
             </ng-container>
-            <ng-container matColumnDef="action" stickyEnd>
-                <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element">
-                    <!-- <button routerLink = "{{element.id}}/edit"> -->
-                    <button class="btn-primary ms-5 me-5" [routerLink]="element.id+'/edit'">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button class="btn-primary ms-5 me-5" (click)="Onremove(element.id)">
-                        <mat-icon color="accent">delete</mat-icon>
-                    </button>
-            </ng-container>
+            <div *ngIf="authService.userState as user;then content else other_content"></div>
+            <ng-template #content>
+                <ng-container matColumnDef="action" stickyEnd>
+
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+
+                        <!-- <button routerLink = "{{element.id}}/edit"> -->
+                        <button class="btn-primary ms-5 me-5" [routerLink]="element.id+'/edit'">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button class="btn-primary ms-5 me-5" (click)="Onremove(element.id)">
+                            <mat-icon color="accent">delete</mat-icon>
+                        </button>
+                </ng-container>
+            </ng-template>
+            <ng-template #other_content>
+                <ng-container matColumnDef="action" stickyEnd>
+
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+
+                </ng-container>
+            </ng-template>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

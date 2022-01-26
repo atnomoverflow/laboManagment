@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entites.Evenement;
 import com.example.demo.service.IEvenementService;
 
+@CrossOrigin
 @RestController
 public class EvenementController {
 
@@ -36,7 +39,6 @@ public class EvenementController {
 		return iEvenementService.addEvenement(event);
 	}
 
-	@CrossOrigin("*")
 	@PutMapping(value = "/evenement/update/{id}")
 	public Evenement updateEvenement(@PathVariable Long id, @RequestBody Evenement e) {
 		e.setId(id);
@@ -47,5 +49,5 @@ public class EvenementController {
 	public void deleteEvenement(@PathVariable Long id) {
 		iEvenementService.deleteEvenement(id);
 	}
-
+	
 }

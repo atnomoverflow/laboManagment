@@ -39,7 +39,7 @@ public class EnseignantChercheur extends Member implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public EnseignantChercheur(String cin, String nom, String prenom, Date dateNaissance, String cv, byte[] photo,
+	public EnseignantChercheur(String cin, String nom, String prenom, Date dateNaissance, String cv, String photo,
 			String email, String password,  String etablissement,String grade) {
 		super(cin, nom, prenom, dateNaissance, cv, photo, email, password);
 		this.grade=grade;

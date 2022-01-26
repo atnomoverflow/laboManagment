@@ -8,23 +8,29 @@ import { FileService } from '../services/FileService/file.service';
 import { MemberService } from '../services/MemberService/member.service';
 
 @Component({
-  selector: 'app-form-membre',
-  templateUrl: './form-membre.component.html',
-  styleUrls: ['./form-membre.component.css']
+  selector: 'app-edit-member-form',
+  templateUrl: './edit-member-form.component.html',
+  styleUrls: ['./edit-member-form.component.css']
 })
-export class FormMembreComponent implements OnInit {
+export class EditMemberFormComponent implements OnInit {
+
 
   selectedFiles: File[] = [];
   form: any;
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
 
-  constructor(private memberService: MemberService, private router: Router, private fs: FileService) { }
+  constructor(private memberService: MemberService, private router: Router, private activatedRouter: ActivatedRoute, private fs: FileService) { }
   ngOnInit(): void {
-    this.intform(null)
+    let id = this.activatedRouter.snapshot.params['id'];
+
+    this.memberService.getMember(id).subscribe(data => {
+      this.intform(data)
+    }, error => console.log(error));
   }
   intform(item: any): void {
     this.form = new FormGroup({
+      id: new FormControl(item?.id, [Validators.required]),
       cin: new FormControl(item?.cin, [Validators.required]),
       nom: new FormControl(item?.nom, [Validators.required]),
       prenom: new FormControl(item?.prenom, [Validators.required]),
@@ -39,8 +45,8 @@ export class FormMembreComponent implements OnInit {
   }
 
   OnSubmit(): void {
-    let outil = { ...this.form.value, "photo": this.form.value.photo?.split("\\").pop(),"cv": this.form.value.cv?.split("\\").pop() }
-    this.memberService.addEnseigant(outil).subscribe(
+    let outil = { ...this.form.value, "photo": this.form.value.photo?.split("\\").pop(), "cv": this.form.value.cv?.split("\\").pop() }
+    this.memberService.updateEnseigant(outil).subscribe(
       (data) => {
         this.router.navigate(["./members"])
       },
@@ -105,6 +111,7 @@ export class FormMembreComponent implements OnInit {
     this.fileStatus.requestType = requestType;
     this.fileStatus.percent = Math.round(100 * loaded / total);
   }
+
 
 
 

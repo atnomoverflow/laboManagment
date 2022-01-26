@@ -11,7 +11,7 @@
 
         <div class=" d-flex justify-content-center">
             <form [formGroup]="form" (ngSubmit)="OnSubmit()">
-                <p class="fs-1">Add Source</p>
+                <p class="fs-1">Add Publication</p>
                 <div class="md-form">
                     <label class="center-block">titre:
                         <input mdbInput class="form-control  form-control-lg" formControlName="titre">
@@ -27,21 +27,25 @@
                         <input mdbInput class="form-control  form-control-lg" formControlName="type">
                     </label>
                 </div>
-                
+
                 <div class="md-form">
                     <label class="center-block">sourcePdf:
-                        <input mdbInput type="file" (change)="onUploadFiles($event)" name="files" multiple class="form-control  form-control-lg" formControlName="sourcePdf">
+                        <input mdbInput type="file" (change)="onUploadFiles($event)" name="files" multiple
+                            class="form-control  form-control-lg" formControlName="sourcePdf">
                     </label>
                 </div>
-                <div class="md-form">
-                    <label class="center-block">auteur:
-                        <mat-select formControlName="auteur">
-                            <mat-option *ngFor="let member of membres" [value]="member.id">
-                                {{member.nom }} {{member.prenom }}
-                            </mat-option>
-                        </mat-select>
+                <label class="center-block">auteur:
+                        <div class="md-form">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Auteur</mat-label>
+                            <mat-select formControlName="auteur">
+                                <mat-option *ngFor="let member of membres" [value]="member.id">
+                                    {{member.nom }} {{member.prenom }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
                     </label>
-                </div>
                 <div class="md-form">
                     <label class="center-block">lien:
                         <input mdbInput class="form-control  form-control-lg" formControlName="lien">

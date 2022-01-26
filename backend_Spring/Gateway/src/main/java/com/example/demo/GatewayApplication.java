@@ -9,14 +9,14 @@ import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
-
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GatewayApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		SpringApplication.run(GatewayApplication.class, args);
 	}
+		
 	// une telle configuration nécessite la connaissance de tous les microservices dans l'app 
 	//et à chaque nouvel ajout on doit modifier le code 
 	//@Bean

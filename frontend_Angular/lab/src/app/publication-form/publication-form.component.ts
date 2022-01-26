@@ -28,7 +28,7 @@ export class PublicationFormComponent implements OnInit {
     this.intform(null)
   }
   private getMembres(){
-    this.memberService.getMembers().subscribe(data =>{
+    this.memberService.getEnseigant().subscribe(data =>{
       this.membres=data;
     })
   }

@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +12,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import com.example.demo.beans.EvenementBean;
 import com.example.demo.beans.OutilBean;
@@ -46,7 +52,7 @@ public class MsMembre2021Application implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(MsMembre2021Application.class, args);
 	}
-
+	
 	@Override
 	public void run(String... args) throws Exception {
 		EnseignantChercheur ens1= new EnseignantChercheur("01752354", "Jmaiel", "Mohamed", new Date(), "",null, "jmaiel@enis.tn", "0000", "ENIS", "Professeur");

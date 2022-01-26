@@ -33,7 +33,7 @@ public abstract class Member  implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
 	private String cv;
-	private byte[] photo;
+	private String photo;
 	private String email;
 	private String password;
 	
@@ -99,10 +99,11 @@ public abstract class Member  implements Serializable{
 	public void setCv(String cv) {
 		this.cv = cv;
 	}
-	public byte[] getPhoto() {
+	
+	public String getPhoto() {
 		return photo;
 	}
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 	public String getEmail() {
@@ -117,7 +118,7 @@ public abstract class Member  implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Member(String cin, String nom, String prenom, Date dateNaissance, String cv, byte[] photo, String email,
+	public Member(String cin, String nom, String prenom, Date dateNaissance, String cv, String photo, String email,
 			String password) {
 		super();
 		this.cin = cin;

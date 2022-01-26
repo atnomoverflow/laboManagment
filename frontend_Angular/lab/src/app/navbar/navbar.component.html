@@ -10,7 +10,21 @@
     <a [routerLink]="['/outils']" routerLinkActive="router-link-active" mat-button>outils</a>
 
     <span class="ml-20">|</span>
-    <a [routerLink]="['/log-in']" routerLinkActive="router-link-active" (click)="tryGoogleLogin()" class="ml-20" mat-raised-button
-        color="accent">Log-in</a>
+    <div *ngIf="!authService.userState as user;then content else other_content"></div>
+    <ng-template #content><a (click)="tryGoogleLogin()" class="ml-20" mat-raised-button
+        color="accent">Log-in</a></ng-template>
+    <ng-template #other_content> <div class=" ml-20 d-flex" *ngIf="authService.userState as user">
+        <div class="media">
+            <img class="align-self-start mr-5 img-thumbnail rounded-circle" height="50px" width="50px"
+                src="{{(user.photoURL) ? user.photoURL : '/assets/dummy.jpg'}}" alt="{{user.displayName}}">
+        </div>
+        <div>
+            <a class="mt-20 ml-20" mat-raised-button color="accent" (click)="authService.SignOut()">
+                Sign Out
+            </a>
+        </div>
+    </div></ng-template>
+  
 
+   
 </mat-toolbar>

@@ -18,9 +18,8 @@ import com.example.demo.entities.EnseignantChercheur;
 import com.example.demo.entities.Etudiant;
 import com.example.demo.entities.Member;
 import com.example.demo.service.IMemberService;
-@CrossOrigin(origins = "*")
+@CrossOrigin
 @RestController
-@RequestMapping("")
 public class MembreController {
 	@Autowired
 	IMemberService iMemberService;
@@ -36,7 +35,11 @@ public class MembreController {
 	{
 		return iMemberService.findMember(id);
 	}
-	
+	@GetMapping(value = "/enseignant")
+	public List<EnseignantChercheur> findoneEnseignant()
+	{
+		return iMemberService.findEnseignant();
+	}
 	@PostMapping(value = "/membres/etudiant")
 	public Member addMembre(@RequestBody Etudiant etd)
 	{
@@ -46,7 +49,7 @@ public class MembreController {
 	@PostMapping(value = "/membres/enseignant")
 	public Member addMembre(@RequestBody EnseignantChercheur ens)
 	{
-		return iMemberService.addMember(ens);
+		return iMemberService.addEnseignant(ens);
 	}
 	@PutMapping(value="/membres/etudiant/{id}")
 	public Member updatemembre(@PathVariable Long id, @RequestBody Etudiant p)
@@ -64,8 +67,12 @@ public class MembreController {
 	@PutMapping(value="/membres/etudiant")
 	public Member affecter(@RequestParam Long idetd , @RequestParam Long idens )
 	{
-		
 	       return iMemberService.affecterencadrantToetudiant(idetd, idens);
+	}
+	@PutMapping(value="/membres/{idAut}/publication/{idPub}")
+	public void affecterPublication(@PathVariable(value = "idAut") Long idAut , @PathVariable(value = "idPub") Long idPub)
+	{
+	        iMemberService.affecterauteurTopublication(idAut, idPub);
 	}
 	@DeleteMapping(value="/membres/{id}")
 	public void deleteMembre(@PathVariable Long id)
@@ -84,6 +91,7 @@ public class MembreController {
 
 	return mbr;
 	}
+	
 
 
 }

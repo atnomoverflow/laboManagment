@@ -42,6 +42,7 @@ import { EditEvenmentFormComponent } from './edit-evenment-form/edit-evenment-fo
 import { EditPublicationFormComponent } from './edit-publication-form/edit-publication-form.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormMembreComponent } from './form-membre/form-membre.component';
+import { EditMemberFormComponent } from './edit-member-form/edit-member-form.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -69,7 +70,8 @@ const config = {
     EditOutilFormComponent,
     EditEvenmentFormComponent,
     EditPublicationFormComponent,
-    FormMembreComponent
+    FormMembreComponent,
+    EditMemberFormComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,9 @@ export class FileService {
       observe: 'events'
     });
   }
-
+  get  url() {
+    return `${this.server}/file/download/`
+  }
   // define function to download files
   download(filename: string): Observable<HttpEvent<Blob>> {
     return this.http.get(`${this.server}/file/download/${filename}/`, {

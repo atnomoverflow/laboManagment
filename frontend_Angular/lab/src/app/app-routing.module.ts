@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditEvenmentFormComponent } from './edit-evenment-form/edit-evenment-form.component';
+import { EditMemberFormComponent } from './edit-member-form/edit-member-form.component';
 import { EditOutilFormComponent } from './edit-outil-form/edit-outil-form.component';
 import { EditPublicationFormComponent } from './edit-publication-form/edit-publication-form.component';
 import { EvenementFormComponent } from './evenement-form/evenement-form.component';
 import { EvenmentsComponent } from './evenments/evenments.component';
 import { FormMembreComponent } from './form-membre/form-membre.component';
+import { AuthGuard } from './garde/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { MembersComponent } from './members/members.component';
 import { OutilFormComponent } from './outil-form/outil-form.component';
@@ -24,37 +26,50 @@ const routes: Routes = [
   {
     path : 'addEvent',
     pathMatch : 'full',
-    component : EvenementFormComponent
+    component: EvenementFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'evenments/:id/edit',
     pathMatch: 'full',
-    component : EditEvenmentFormComponent
+    component: EditEvenmentFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'addOutil',
     pathMatch : 'full',
-    component : OutilFormComponent
+    component: OutilFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'outils/:id/edit',
     pathMatch: 'full',
-    component : EditOutilFormComponent
+    component: EditOutilFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'addPublication',
     pathMatch : 'full',
-    component : PublicationFormComponent
+    component: PublicationFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'publications/:id/edit',
     pathMatch: 'full',
-    component : EditPublicationFormComponent
+    component: EditPublicationFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path : 'addMember',
     pathMatch : 'full',
-    component : FormMembreComponent
+    component: FormMembreComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path : 'members/:id/edit',
+    pathMatch: 'full',
+    component: EditMemberFormComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

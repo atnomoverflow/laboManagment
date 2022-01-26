@@ -6,6 +6,7 @@ import { FileService } from '../services/FileService/file.service';
 import { MemberService } from '../services/MemberService/member.service';
 import { Member } from './member';
 import { saveAs } from 'file-saver';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-members',
@@ -18,7 +19,7 @@ export class MembersComponent implements OnInit {
   fileStatus = { status: '', requestType: '', percent: 0 };
   public members: Member[] = [];
   displayedColumns: string[] = [  'photo','nom', 'prenom', 'dateNaissance', 'cv',  'email', 'etablissement','sujet', 'diplome','action']
-  constructor(private outilService: MemberService, private dialog: MatDialog,private fs:FileService) {
+  constructor(private outilService: MemberService,public authService: AuthService, private dialog: MatDialog,private fs:FileService) {
 
   }
 
@@ -44,6 +45,9 @@ export class MembersComponent implements OnInit {
     })
 
 
+  }
+  getPhotoUrl(photoName:string) {
+    return this.fs.url+photoName
   }
   onDownloadFile(filename: string): void {
     this.fs.download(filename).subscribe(

@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { AuthService } from '../services/auth/auth.service';
 import { EvenementService } from '../services/EvenementService/evenement.service';
 import { Evenement } from './evenement';
 
@@ -15,7 +16,7 @@ export class EvenmentsComponent implements OnInit {
   public events: Evenement[] = [];
   displayedColumns: string[] =['id','date','titre','lieu','action'];
 
-  constructor(private evenementService:EvenementService, private dialog: MatDialog) {
+  constructor(private evenementService:EvenementService,public authService: AuthService, private dialog: MatDialog) {
     
    }
 

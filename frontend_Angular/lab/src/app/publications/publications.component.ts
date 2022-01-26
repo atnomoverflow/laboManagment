@@ -6,6 +6,7 @@ import { PublicationService } from '../services/PublicationService/publication.s
 import { Publication } from './publication';
 import { saveAs } from 'file-saver';
 import { FileService } from '../services/FileService/file.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-publications',
@@ -19,7 +20,7 @@ export class PublicationsComponent implements OnInit {
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
 
-  constructor(private publicationService: PublicationService, private dialog: MatDialog,private fs:FileService) {
+  constructor(private publicationService: PublicationService,public authService: AuthService, private dialog: MatDialog,private fs:FileService) {
 
   }
 

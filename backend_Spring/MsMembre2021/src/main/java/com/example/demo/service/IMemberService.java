@@ -25,8 +25,8 @@ public interface IMemberService {
 	//recherche spécifique des enseignants
 	public List<EnseignantChercheur> findByGrade(String grade);
 	public List<EnseignantChercheur> findByEtablissement(String etablissement);
-
-
+	public List<EnseignantChercheur> findEnseignant();
+	public EnseignantChercheur addEnseignant(EnseignantChercheur e) ;
 	public Etudiant affecterencadrantToetudiant(Long idetd, Long idens);
 	
 	public List<Etudiant> findEtudiantsByEncadrant(Long idens);

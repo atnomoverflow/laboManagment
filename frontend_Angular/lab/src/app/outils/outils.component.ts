@@ -6,6 +6,7 @@ import { FileService } from '../services/FileService/file.service';
 import { OutilService } from '../services/OutilService/outil.service';
 import { Outil } from './outils';
 import { saveAs } from 'file-saver';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-outils',
@@ -20,7 +21,7 @@ export class OutilsComponent implements OnInit {
   fileStatus = { status: '', requestType: '', percent: 0 };
 
 
-  constructor(private outilService: OutilService, private dialog: MatDialog, private fs: FileService) {
+  constructor(private outilService: OutilService,public authService: AuthService, private dialog: MatDialog, private fs: FileService) {
 
   }
 

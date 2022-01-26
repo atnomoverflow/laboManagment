@@ -14,12 +14,17 @@ export class MemberService {
   public getMembers(): Observable<Member[]> {
     return this.httpClient.get<Member[]>(`${this.apiServerURL}/membres/`)
   }
+  public getEnseigant(): Observable<Member[]> {
+    return this.httpClient.get<Member[]>(`${this.apiServerURL}/enseignant/`)
+  }
 
   public addEnseigant(event: Member): Observable<Member> {
     console.log(event)
     return this.httpClient.post<Member>(`${this.apiServerURL}/membres/enseignant`, event);
   }
-
+  public getMember(memberID: number) {
+    return this.httpClient.get<Member>(`${this.apiServerURL}/membres/${memberID}`)
+  }
   public addEtudiant(event: Member): Observable<Member> {
     console.log(event)
     return this.httpClient.post<Member>(`${this.apiServerURL}/membre/etudiant`, event);
@@ -30,7 +35,7 @@ export class MemberService {
   }
 
   public updateEnseigant(member: Member): Observable<Member> {
-    return this.httpClient.put<Member>(`${this.apiServerURL}/member/enseigant/${member.id}`, member);
+    return this.httpClient.put<Member>(`${this.apiServerURL}/membres/enseignant/${member.id}`, member);
   }
 
   public deleteMember(memberID: number): Observable<void> {
@@ -39,7 +44,7 @@ export class MemberService {
   public getDetailMember(memberID: number): Observable<Member> {
     return this.httpClient.get<Member>(`${this.apiServerURL}/fullmembe/${memberID}`);
   }
-
+  
   public assignMentor(idetd: number, idens: number): Observable<Member> {
     let params = new HttpParams();
     params.set('idetd', idetd);

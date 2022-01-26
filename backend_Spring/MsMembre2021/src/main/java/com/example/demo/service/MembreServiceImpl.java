@@ -52,6 +52,9 @@ public class MembreServiceImpl implements IMemberService{
 	public Member addMember(Member m) {
 		return membreRepository.save(m);
 	}
+	public EnseignantChercheur addEnseignant(EnseignantChercheur e) {
+		return enseignantRepository.save(e);
+	}
 	public void deleteMember(Long id) {
 		if(membreRepository.findById(id).isPresent())
 			membreRepository.deleteById(id);	
@@ -64,6 +67,9 @@ public class MembreServiceImpl implements IMemberService{
 	}
 	public List<Member> findAll() {
 		return membreRepository.findAll();
+	}
+	public List<EnseignantChercheur> findEnseignant() {
+		return enseignantRepository.findAll();
 	}
 	public Member findByCin(String cin) {
 		
